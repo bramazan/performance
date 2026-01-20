@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tech Team Dashboard: Talent Intelligence</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b7cee",
+                        "background-light": "#f8fafc",
+                        "slate-card": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .radar-chart {
+            background: radial-gradient(circle, rgba(43, 124, 238, 0.03) 0%, transparent 70%);
+        }
+        .card-shadow {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+        }
+    </style>
+</head>
+
+<body class="text-slate-900 min-h-screen">
+    <div class="flex h-screen overflow-hidden">
+        <aside class="w-64 border-r border-slate-200 flex flex-col bg-white shrink-0">
+            <div class="p-6 flex flex-col gap-8 h-full">
+                <div class="flex items-center gap-3">
+                    <div class="bg-primary size-10 rounded-lg flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined">account_balance</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-slate-900 text-sm font-bold leading-none">BaaS Tech Admin</h1>
+                        <p class="text-slate-500 text-xs font-normal">Enterprise Dashboard</p>
+                    </div>
+                </div>
+                <nav class="flex flex-col gap-1 flex-1">
+                    <a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
+                        href="index.html">
+                        <span class="material-symbols-outlined text-[20px]">dashboard</span>
+                        <span class="text-sm font-medium">Team Overview</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
+                        href="health.html">
+                        <span class="material-symbols-outlined text-[20px]">monitor_heart</span>
+                        <span class="text-sm font-medium">Team Health</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
+                        href="tech.html">
+                        <span class="material-symbols-outlined text-[20px]">layers</span>
+                        <span class="text-sm font-medium">Tech Stack</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 bg-primary/5 text-primary rounded-lg" href="#">
+                        <span class="material-symbols-outlined text-[20px]"
+                            style="font-variation-settings: 'FILL' 1;">psychology</span>
+                        <span class="text-sm font-medium">Talent Intelligence</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
+                        href="projects.html">
+                        <span class="material-symbols-outlined text-[20px]">map</span>
+                        <span class="text-sm font-medium">Roadmap</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
+                        href="ecosystem.html">
+                        <span class="material-symbols-outlined text-[20px]">hub</span>
+                        <span class="text-sm font-medium">Ecosystem</span>
+                    </a>
+                </nav>
+                <div class="mt-auto pt-6 border-t border-slate-100">
+                    <button
+                        class="w-full flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold tracking-wide hover:bg-primary/90 transition-all shadow-sm shadow-primary/20">
+                        <span class="material-symbols-outlined text-[18px]">download</span>
+                        <span>Export Data</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <header class="h-16 flex items-center justify-between border-b border-slate-200 px-8 bg-white shrink-0">
+                <div class="flex items-center gap-8">
+                    <h2 class="text-slate-900 text-lg font-bold">Tech Management</h2>
+                    <nav class="hidden md:flex items-center gap-6">
+                        <a class="text-primary text-sm font-semibold" href="#">Dashboard</a>
+                        <a class="text-slate-500 text-sm font-medium hover:text-primary transition-colors"
+                            href="#">Analytics</a>
+                        <a class="text-slate-500 text-sm font-medium hover:text-primary transition-colors"
+                            href="#">Reports</a>
+                    </nav>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="relative max-w-64 w-64 hidden lg:block">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+                        <input
+                            class="w-full pl-10 pr-4 py-2 text-sm border-none rounded-lg bg-slate-50 text-slate-900 focus:ring-1 focus:ring-primary/20 placeholder:text-slate-400"
+                            placeholder="Search talent..." type="text" />
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="p-2 rounded-lg bg-slate-50 text-slate-500 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">notifications</span>
+                        </button>
+                        <button class="p-2 rounded-lg bg-slate-50 text-slate-500 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">verified_user</span>
+                        </button>
+                    </div>
+                    <div class="size-8 rounded-full bg-slate-100 overflow-hidden ring-2 ring-slate-100">
+                        <img alt="Admin" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2EjfuE67YN91cUtkWLjOCkl495BS4SvC0VVf2yxUdSC208IOP2wPlST4M9ekgN1PA-u_7OlEzxES_Xj9TO9p01g38Va9gjtTQDG9Zm0r6N9yZ24kO_1wOcpPWYQMA_f9GX4xVHZ5uvX_Aiu3TVzgVfIVgZatHgcYapa0w97fLBQO-NZbZz_tHOQHtA0uIpXmA0x3Ccr_nP35ummIMXKiYsRRDH1oy6FABr0gJwSfNHOffPaUMWW6ArkUSLuuJsOgdEn2qTNXuM4k" />
+                    </div>
+                </div>
+            </header>
+            <div class="flex-1 overflow-y-auto p-8 bg-background-light">
+                <div class="flex flex-wrap justify-between items-end gap-4 mb-8">
+                    <div class="flex flex-col gap-1">
+                        <h3 class="text-slate-900 text-4xl font-black tracking-tight leading-none">Talent Intelligence
+                        </h3>
+                        <p class="text-slate-500 text-sm font-medium">Advanced performance &amp; retention mapping for
+                            the engineering department.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <p class="text-slate-400 text-[11px] font-medium mr-2">Last updated: 2 hours ago</p>
+                        <button
+                            class="flex items-center gap-2 rounded-lg h-10 px-4 bg-white border border-slate-200 text-slate-700 text-sm font-bold transition-all hover:bg-slate-50 group">
+                            <span class="material-symbols-outlined text-[18px]">visibility_off</span>
+                            <span>Blur Sensitive Data</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <button
+                        class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-semibold text-slate-600 hover:border-slate-300 transition-colors">
+                        Stack: Go <span class="material-symbols-outlined text-[16px] text-slate-400">expand_more</span>
+                    </button>
+                    <button
+                        class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-semibold text-slate-600 hover:border-slate-300 transition-colors">
+                        Role: Lead <span class="material-symbols-outlined text-[16px] text-slate-400">expand_more</span>
+                    </button>
+                    <button
+                        class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-xs font-semibold text-white shadow-sm shadow-primary/20">
+                        Risk: Low <span class="material-symbols-outlined text-[16px]">expand_more</span>
+                    </button>
+                    <button
+                        class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-semibold text-slate-600 hover:border-slate-300 transition-colors">
+                        9-Box: Star <span
+                            class="material-symbols-outlined text-[16px] text-slate-400">expand_more</span>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col card-shadow">
+                        <div class="p-6 flex items-start justify-between">
+                            <div class="flex gap-4">
+                                <div
+                                    class="size-16 rounded-xl bg-slate-50 overflow-hidden ring-1 ring-slate-100 shrink-0">
+                                    <img alt="Marcus Thorne" class="w-full h-full object-cover"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo0djPPqSpfCfDfurkJJjujQ1HOexRZzzSEpJE61bqF1vyzlYeKDr4qb2mnh29KTqS7LiiVJaV_yofhQcRPwsevVImiBeeVDSeusBE4JU14mb8aSbN6NO2wP0Nkv-BVKkVk8Vh-P5LEnUYuTXVmbF-6_lk50pmVtr3317oqXvIHsJgI0RB4-2-Jg2egIyFVj1MoClyAEDAKmVGdzLeyjeAk-NkFFp1m5_CMxNyXyLmUbo6bx8HNn4qLnHGGnrcWWmNvJqGv26Ul-c" />
+                                </div>
+                                <div class="flex flex-col">
+                                    <h4 class="text-slate-900 text-lg font-bold leading-tight">Gökhan İbrikçi</h4>
+                                    <p class="text-slate-500 text-sm font-medium">Team Lead</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span
+                                            class="px-2 py-0.5 rounded bg-slate-50 text-[10px] font-bold text-slate-500 uppercase tracking-wider border border-slate-100">Leadership</span>
+                                        <span
+                                            class="px-2 py-0.5 rounded bg-slate-50 text-[10px] font-bold text-slate-500 uppercase tracking-wider border border-slate-100">Java</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-end gap-2">
+                                <span
+                                    class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 text-[10px] font-bold uppercase tracking-tight flex items-center gap-1 border border-emerald-100">
+                                    <span class="size-1.5 rounded-full bg-emerald-500"></span> Star Player
+                                </span>
+                                <span
+                                    class="px-2.5 py-1 rounded-full bg-slate-50 text-slate-500 text-[10px] font-bold uppercase tracking-tight border border-slate-100">9-Box:
+                                    9</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50/40 p-6 border-t border-slate-100 grid grid-cols-2 gap-8">
+                            <div class="flex flex-col gap-5">
+                                <div>
+                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Core
+                                        Performance</p>
+                                    <div class="space-y-3.5">
+                                        <div>
+                                            <div class="flex items-center justify-between mb-1.5">
+                                                <span class="text-xs font-medium text-slate-500">Code Quality</span>
+                                                <span class="text-xs font-bold text-emerald-600">98%</span>
+                                            </div>
+                                            <div class="w-full bg-slate-200/50 h-1.5 rounded-full">
+                                                <div class="bg-emerald-500 h-1.5 rounded-full shadow-sm"
+                                                    style="width: 98%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-1.5">
+                                                <span class="text-xs font-medium text-slate-500">Uptime Delivery</span>
+                                                <span class="text-xs font-bold text-primary">99.9%</span>
+                                            </div>
+                                            <div class="w-full bg-slate-200/50 h-1.5 rounded-full">
+                                                <div class="bg-primary h-1.5 rounded-full shadow-sm" style="width: 99%">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-4 border-t border-slate-200/60">
+                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">
+                                        Successor</p>
+                                    <p class="text-sm font-semibold text-slate-700 flex items-center gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-[18px] text-slate-300">account_circle</span>
+                                        Alex Rivers
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <div class="relative size-24 mx-auto radar-chart flex items-center justify-center">
+                                    <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+                                        <polygon fill="none" points="50,10 85,35 75,85 25,85 15,35" stroke="#e2e8f0"
+                                            stroke-width="1"></polygon>
+                                        <polygon fill="none" points="50,20 75,40 68,75 32,75 25,40" stroke="#e2e8f0"
+                                            stroke-width="1"></polygon>
+                                        <polygon fill="rgba(43, 124, 238, 0.15)" points="50,15 82,40 70,80 30,78 20,42"
+                                            stroke="#2b7cee" stroke-width="1.5"></polygon>
+                                    </svg>
+                                    <span
+                                        class="absolute text-[8px] font-bold text-slate-400 tracking-tighter top-0">SOFT
+                                        SKILLS</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2 mt-auto">
+                                    <div class="p-2.5 rounded-lg bg-white border border-slate-200/60">
+                                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Risk</p>
+                                        <p class="text-[11px] font-extrabold text-emerald-600">LOW</p>
+                                    </div>
+                                    <div class="p-2.5 rounded-lg bg-white border border-slate-200/60">
+                                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Bus
+                                            Factor</p>
+                                        <p class="text-[11px] font-extrabold text-slate-700">4 / 5</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col card-shadow">
+                        <div class="p-6 flex items-start justify-between">
+                            <div class="flex gap-4">
+                                <div
+                                    class="size-16 rounded-xl bg-slate-50 overflow-hidden ring-1 ring-slate-100 shrink-0">
+                                    <img alt="Sarah Chen" class="w-full h-full object-cover"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGFSIMVLp3PGkP_u7pmBNSncplGrZEc25Ipe9t937CW5btORdnRzO6bl55eoo9_GStcmEDGG7a5IYRaAq2hMzPCYO3MQYLsdfmY0SwZ3XXoFBxfMM0y3q2d-OkCdzUawiXnYTdLq1ze6FNkLRyVvb8PQUn4z0TDOE4g0TVCMATye6ooXXfInmByHnNwDsSsH7DlbAaCopI1wGG83LVCAxietHDBuPEI-7tyjFgEBQCGXMn8Vd9iLr0xNzn6cmJf1ndaamjTCBjSc4" />
+                                </div>
+                                <div class="flex flex-col">
+                                    <h4 class="text-slate-900 text-lg font-bold leading-tight">Mert Kaim</h4>
+                                    <p class="text-slate-500 text-sm font-medium">Software Developer</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span
+                                            class="px-2 py-0.5 rounded bg-slate-50 text-[10px] font-bold text-slate-500 uppercase tracking-wider border border-slate-100">Process</span>
+                                        <span
+                                            class="px-2 py-0.5 rounded bg-slate-50 text-[10px] font-bold text-slate-500 uppercase tracking-wider border border-slate-100">DevOps</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-end gap-2">
+                                <span
+                                    class="px-2.5 py-1 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-tight flex items-center gap-1 border border-blue-100">
+                                    <span class="size-1.5 rounded-full bg-blue-500"></span> Role Model
+                                </span>
+                                <span
+                                    class="px-2.5 py-1 rounded-full bg-slate-50 text-slate-500 text-[10px] font-bold uppercase tracking-tight border border-slate-100">9-Box:
+                                    8</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50/40 p-6 border-t border-slate-100 grid grid-cols-2 gap-8">
+                            <div class="flex flex-col gap-5">
+                                <div>
+                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Core
+                                        Performance</p>
+                                    <div class="space-y-3.5">
+                                        <div>
+                                            <div class="flex items-center justify-between mb-1.5">
+                                                <span class="text-xs font-medium text-slate-500">Code Quality</span>
+                                                <span class="text-xs font-bold text-emerald-600">95%</span>
+                                            </div>
+                                            <div class="w-full bg-slate-200/50 h-1.5 rounded-full">
+                                                <div class="bg-emerald-500 h-1.5 rounded-full shadow-sm"
+                                                    style="width: 95%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-1.5">
+                                                <span class="text-xs font-medium text-slate-500">Bug Rate</span>
+                                                <span class="text-xs font-bold text-amber-600">Low</span>
+                                            </div>
+                                            <div class="w-full bg-slate-200/50 h-1.5 rounded-full">
+                                                <div class="bg-amber-500 h-1.5 rounded-full shadow-sm"
+                                                    style="width: 80%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-4 border-t border-slate-200/60">
+                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">
+                                        Successor</p>
+                                    <p class="text-sm font-semibold text-slate-700 flex items-center gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-[18px] text-slate-300">verified</span>
+                                        Elite Practices
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <div class="relative size-24 mx-auto radar-chart flex items-center justify-center">
+                                    <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+                                        <polygon fill="none" points="50,10 85,35 75,85 25,85 15,35" stroke="#e2e8f0"
+                                            stroke-width="1"></polygon>
+                                        <polygon fill="rgba(43, 124, 238, 0.15)" points="50,25 70,45 60,80 40,80 30,45"
+                                            stroke="#2b7cee" stroke-width="1.5"></polygon>
+                                    </svg>
+                                    <span
+                                        class="absolute text-[8px] font-bold text-slate-400 tracking-tighter top-0">SOFT
+                                        SKILLS</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2 mt-auto">
+                                    <div class="p-2.5 rounded-lg bg-white border border-slate-200/60">
+                                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Risk</p>
+                                        <p class="text-[11px] font-extrabold text-amber-600">MEDIUM</p>
+                                    </div>
+                                    <div class="p-2.5 rounded-lg bg-white border border-slate-200/60">
+                                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Bus
+                                            Factor</p>
+                                        <p class="text-[11px] font-extrabold text-slate-700">2 / 5</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col card-shadow">
+                        <div class="p-6 flex items-start justify-between">
+                            <div class="flex gap-4">
+                                <div
+                                    class="size-16 rounded-xl bg-slate-50 overflow-hidden ring-1 ring-slate-100 shrink-0">
+                                    <img alt="Jordan Lee" class="w-full h-full object-cover"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhj0JXzf2jne0D2scvsSDJL35O5p7uBlo3L85x2COPwVrGEcSLTdKepa4G8HwD-rJXfuIZ6OKACHUFvbU9S-O0WN1EiZ4EnDwMe27S9yRos_6hO0UWrV77VG1ioSnStefk3Jow4NfU147Un3Hz4Jzm_RmhcWT_xJrMrKuOTPqmlb2sYT9MDzoxYL6UFO9AV6n9RBaEXY9jUelNMQhXaOKT-bGHOQ6E8VeY_tmM4wIOb3hU1LpfxDMg_B_t3882ccKj7eebiqRDQoA" />
+                                </div>
+                                <div class="flex flex-col">
+                                    <h4 class="text-slate-900 text-lg font-bold leading-tight">Alican İnan</h4>
+                                    <p class="text-slate-500 text-sm font-medium">Software Developer</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span
+                                            class="px-2 py-0.5 rounded bg-slate-50 text-[10px] font-bold text-slate-500 uppercase tracking-wider border border-slate-100">Features</span>
+                                        <span
+                                            class="px-2 py-0.5 rounded bg-slate-50 text-[10px] font-bold text-slate-500 uppercase tracking-wider border border-slate-100">Payment</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-end gap-2">
+                                <span
+                                    class="px-2.5 py-1 rounded-full bg-purple-50 text-purple-600 text-[10px] font-bold uppercase tracking-tight flex items-center gap-1 border border-purple-100">
+                                    <span class="size-1.5 rounded-full bg-purple-500"></span> High Volume
+                                </span>
+                                <span
+                                    class="px-2.5 py-1 rounded-full bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-tight border border-primary/10">9-Box:
+                                    6</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50/40 p-6 border-t border-slate-100 grid grid-cols-2 gap-8">
+                            <div class="flex flex-col gap-5">
+                                <div>
+                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Core
+                                        Performance</p>
+                                    <div class="space-y-3.5">
+                                        <div>
+                                            <div class="flex items-center justify-between mb-1.5">
+                                                <span class="text-xs font-medium text-slate-500">Doc Integrity</span>
+                                                <span class="text-xs font-bold text-amber-600">Needs Impr.</span>
+                                            </div>
+                                            <div class="w-full bg-slate-200/50 h-1.5 rounded-full">
+                                                <div class="bg-amber-500 h-1.5 rounded-full shadow-sm"
+                                                    style="width: 50%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between mb-1.5">
+                                                <span class="text-xs font-medium text-slate-500">Collaboration</span>
+                                                <span class="text-xs font-bold text-primary">100%</span>
+                                            </div>
+                                            <div class="w-full bg-slate-200/50 h-1.5 rounded-full">
+                                                <div class="bg-primary h-1.5 rounded-full shadow-sm"
+                                                    style="width: 100%">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-4 border-t border-slate-200/60">
+                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">
+                                        Successor</p>
+                                    <p class="text-sm font-semibold text-slate-700 flex items-center gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-[18px] text-slate-300">account_circle</span>
+                                        Sarah Chen
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <div class="relative size-24 mx-auto radar-chart flex items-center justify-center">
+                                    <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+                                        <polygon fill="none" points="50,10 85,35 75,85 25,85 15,35" stroke="#e2e8f0"
+                                            stroke-width="1"></polygon>
+                                        <polygon fill="rgba(43, 124, 238, 0.15)" points="50,12 80,38 72,82 28,82 18,38"
+                                            stroke="#2b7cee" stroke-width="1.5"></polygon>
+                                    </svg>
+                                    <span
+                                        class="absolute text-[8px] font-bold text-slate-400 tracking-tighter top-0">SOFT
+                                        SKILLS</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2 mt-auto">
+                                    <div class="p-2.5 rounded-lg bg-white border border-slate-200/60">
+                                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Risk</p>
+                                        <p class="text-[11px] font-extrabold text-emerald-600">LOW</p>
+                                    </div>
+                                    <div class="p-2.5 rounded-lg bg-white border border-slate-200/60">
+                                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Bus
+                                            Factor</p>
+                                        <p class="text-[11px] font-extrabold text-slate-700">5 / 5</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-xl bg-white border border-slate-200 flex items-center gap-5 card-shadow">
+                        <div
+                            class="size-14 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 border border-slate-100">
+                            <span class="material-symbols-outlined">groups</span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">Total
+                                Headcount</p>
+                            <h5 class="text-2xl font-black text-slate-900 leading-none">9</h5>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-xl bg-white border border-slate-200 flex items-center gap-5 card-shadow">
+                        <div
+                            class="size-14 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-500 border border-emerald-100">
+                            <span class="material-symbols-outlined">star</span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">Stars
+                                Identified</p>
+                            <h5 class="text-2xl font-black text-slate-900 leading-none">33%</h5>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-xl bg-white border border-slate-200 flex items-center gap-5 card-shadow">
+                        <div
+                            class="size-14 rounded-full bg-amber-50 flex items-center justify-center text-amber-500 border border-amber-100">
+                            <span class="material-symbols-outlined">warning</span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">High
+                                Retention Risk</p>
+                            <h5 class="text-2xl font-black text-slate-900 leading-none">0</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

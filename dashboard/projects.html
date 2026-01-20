@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tech Team Dashboard: Projects &amp; Roadmap</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0F172A",
+                        "accent": "#2563EB",
+                        "banking-bg": "#F8FAFC",
+                        "card-bg": "#FFFFFF",
+                        "border-subtle": "#E2E8F0",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body { @apply bg-banking-bg text-slate-900 font-display antialiased; }
+        }
+        .vertical-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 2rem;
+            bottom: 0;
+            width: 1px;
+            @apply bg-slate-200;
+        }
+    </style>
+</head>
+
+<body class="transition-colors duration-300">
+    <div class="flex min-h-screen">
+        <aside class="w-72 border-r border-border-subtle flex flex-col bg-white sticky h-screen top-0">
+            <div class="p-8">
+                <div class="flex items-center gap-3 mb-10">
+                    <div class="size-9 bg-primary rounded flex items-center justify-center text-white shadow-sm">
+                        <span class="material-symbols-outlined text-xl">account_balance</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-sm font-bold tracking-tight text-primary">Service Banking</h1>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Team Dashboard</p>
+                    </div>
+                </div>
+                <nav class="space-y-1.5">
+                    <a class="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-50 rounded-lg transition-all"
+                        href="index.html">
+                        <span class="material-symbols-outlined text-[20px]">grid_view</span>
+                        Overview
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold bg-accent/5 text-accent rounded-lg border border-accent/10"
+                        href="#">
+                        <span class="material-symbols-outlined text-[20px]">alt_route</span>
+                        Strategic Roadmap
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-50 rounded-lg transition-all"
+                        href="tech.html">
+                        <span class="material-symbols-outlined text-[20px]">account_tree</span>
+                        Architecture
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-50 rounded-lg transition-all"
+                        href="health.html">
+                        <span class="material-symbols-outlined text-[20px]">finance_chip</span>
+                        Resource Allocation
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-50 rounded-lg transition-all"
+                        href="talent.html">
+                        <span class="material-symbols-outlined text-[20px]">psychology</span>
+                        Talent Intelligence
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-50 rounded-lg transition-all"
+                        href="ecosystem.html">
+                        <span class="material-symbols-outlined text-[20px]">hub</span>
+                        Ecosystem
+                    </a>
+                </nav>
+            </div>
+            <div class="mt-auto p-8 border-t border-border-subtle bg-slate-50/50">
+                <div class="flex items-center gap-4">
+                    <div class="size-11 rounded-full bg-cover bg-center border-2 border-white shadow-sm"
+                        data-alt="User profile avatar circle"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBXt5kg8o5NP88sSh-ilpwn0cIdUdPQvx1xqh0a5JrEP3SZQreLITUYUuqQQtZn5H7PQUel_Yp9RobaK8a9ttTvz2n7EfgIQmep7au6valqcq7IxKvzqZ3WSpEZ6VHZ2JfGYUy7GUMk7uikI2uNNfz4Rhpdn-6E3hjO0RM5vl7ef6e47BgZuUBCn9kYpn4UgRmVcx4vh3psumObCBi-mqZLXJ9qYToTP5y3-OtoQngrFOPnv7GzDvqhZEZBFwnRT1wuL1uGcJbM1iM");'>
+                    </div>
+                    <div class="flex flex-col overflow-hidden">
+                        <p class="text-xs font-bold text-slate-900 truncate">Gökhan İbrikçi</p>
+                        <p class="text-[10px] font-medium text-slate-500 truncate uppercase tracking-tight">Team Lead
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main class="flex-1 overflow-y-auto">
+            <header
+                class="flex items-center justify-between px-10 py-5 border-b border-border-subtle bg-white/80 backdrop-blur-sm sticky top-0 z-20">
+                <div class="flex items-center gap-6">
+                    <div class="relative w-80">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+                        <input
+                            class="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-lg text-sm placeholder:text-slate-400 focus:ring-1 focus:ring-accent/30 outline-none transition-all"
+                            placeholder="Find project or initiative..." type="text" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="flex gap-4 items-center mr-4">
+                        <span
+                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-bold">
+                            <span class="size-1.5 rounded-full bg-emerald-500"></span> System Stable
+                        </span>
+                    </div>
+                    <button
+                        class="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-md hover:bg-slate-800 transition-all">
+                        <span class="material-symbols-outlined text-lg">ios_share</span>
+                        Export Strategy
+                    </button>
+                </div>
+            </header>
+            <div class="max-w-6xl mx-auto px-10 py-12">
+                <div class="mb-14">
+                    <nav
+                        class="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">
+                        <span>Strategy</span>
+                        <span class="material-symbols-outlined text-sm">chevron_right</span>
+                        <span class="text-accent">Technology Roadmap</span>
+                    </nav>
+                    <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 mb-3">Portfolio Performance &amp;
+                        Roadmap</h1>
+                    <p class="text-slate-500 text-lg max-w-3xl font-medium leading-relaxed">Strategic executive summary
+                        of engineering delivery for the BaaS division. Retrospective analysis and upcoming high-impact
+                        initiatives.</p>
+                </div>
+                <section
+                    class="mb-24 p-10 bg-white rounded-xl border border-border-subtle shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)]">
+                    <div class="flex items-end justify-between mb-10">
+                        <div>
+                            <span
+                                class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-2">Performance
+                                Audit</span>
+                            <h2 class="text-2xl font-bold text-slate-900">2025 Executive Retrospective</h2>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-[10px] font-bold text-slate-400 uppercase">Success Rate</p>
+                                <p class="text-2xl font-black text-emerald-600 tracking-tight">100%</p>
+                            </div>
+                            <div
+                                class="size-12 rounded-full border-4 border-emerald-100 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-emerald-600 font-bold">check</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div
+                            class="group border border-slate-100 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500">
+                            <div class="h-44 bg-cover bg-center relative"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA--yPNiSv--vrAipwO-NDiUxfPK2VPRptJcUU9mFV5TRq84VxH2mx6AvN0cm6IbpWNjLejAthPgPDBGiIyZFwFlzbpfKYdvtFS83UsxElqq1pKkdN4PjrghsluQWXJGbsITuuRPBaaE0W4DkD6smqENP8YXSPVXosC-rfeHZoJEXy4mWFSiYUqfx8Uls8WAITfIjM3sDFgjItDhpy4y2AtNSRkjhzvCA8Q5DrzA_M-MpdA3p45AKPZGX-YmIC-f7FATN0hUVEUeTQ");'>
+                                <div class="absolute inset-0 bg-slate-900/10"></div>
+                                <div class="absolute top-4 right-4">
+                                    <span
+                                        class="bg-white/95 backdrop-blur-sm text-slate-900 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded shadow-sm">Infrastructure</span>
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold text-slate-900">Open Banking Gateway</h3>
+                                    <span class="text-slate-400 text-xs font-semibold uppercase">Q3 Final</span>
+                                </div>
+                                <p class="text-slate-500 text-sm mb-6 leading-relaxed">Unified API layer for
+                                    cross-border PSD2 compliant treasury movements and institutional access.</p>
+                                <div
+                                    class="bg-emerald-50/50 border border-emerald-100 p-5 rounded-lg group-hover:bg-emerald-50 transition-colors">
+                                    <div
+                                        class="flex items-center gap-2 text-emerald-700 font-bold text-[11px] uppercase tracking-wider mb-2">
+                                        <span class="material-symbols-outlined text-base">monitoring</span>
+                                        Commercial Value
+                                    </div>
+                                    <p class="text-emerald-800 text-sm font-medium">Delivered 40% growth in API revenue
+                                        via 12 new premium fintech integrations.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="group border border-slate-100 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500">
+                            <div class="h-44 bg-cover bg-center relative"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDpbeDOyT2U5yE3rzgfYe47I4Hzzq-NR10p-0XTdzP3KPCm_by1s7qyNRh1N5fj4v5nbYs7fnq6-0t4e3CxDfT1gksLhkJTutT2TKhMBwtvZOHXXGjpm-EvLHkMNqkiU6zaNv9TVZcfrgsKgFIAwTAR7VseyF75DbLMJhUekhaAZUk4JY_FvTF5IraAwufjPf5fVpJp_v7uSETq6GkLvqVTLVQhPu4kagxaJC9Yq6qfY147ClZycQcSReHV8I_2tVj8vNY-bunlPHM");'>
+                                <div class="absolute inset-0 bg-slate-900/10"></div>
+                                <div class="absolute top-4 right-4">
+                                    <span
+                                        class="bg-white/95 backdrop-blur-sm text-slate-900 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded shadow-sm">Core
+                                        Engine</span>
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold text-slate-900">Ledger Migration</h3>
+                                    <span class="text-slate-400 text-xs font-semibold uppercase">Q4 Final</span>
+                                </div>
+                                <p class="text-slate-500 text-sm mb-6 leading-relaxed">Seamless transition of 4M+
+                                    accounts to the V3 Cloud-Native ledger for enhanced scalability.</p>
+                                <div
+                                    class="bg-blue-50/50 border border-blue-100 p-5 rounded-lg group-hover:bg-blue-50 transition-colors">
+                                    <div
+                                        class="flex items-center gap-2 text-blue-700 font-bold text-[11px] uppercase tracking-wider mb-2">
+                                        <span class="material-symbols-outlined text-base">speed</span>
+                                        Efficiency ROI
+                                    </div>
+                                    <p class="text-blue-800 text-sm font-medium">Latency reduction of 120ms; increased
+                                        system peak throughput by 65%.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="h-12"></div>
+                <section class="relative">
+                    <div class="flex items-center justify-between mb-12">
+                        <div>
+                            <span
+                                class="text-[11px] font-black text-accent uppercase tracking-[0.2em] block mb-2">Active
+                                Development</span>
+                            <h2 class="text-3xl font-extrabold text-slate-900">2026 Strategic Horizons</h2>
+                        </div>
+                        <div class="flex gap-2">
+                            <button
+                                class="px-4 py-2 bg-slate-100 text-slate-600 rounded-lg text-xs font-bold hover:bg-slate-200">Filter
+                                by Priority</button>
+                            <button
+                                class="px-4 py-2 bg-slate-100 text-slate-600 rounded-lg text-xs font-bold hover:bg-slate-200">View
+                                GANTT</button>
+                        </div>
+                    </div>
+                    <div class="relative vertical-timeline space-y-12 ml-4">
+                        <div class="relative pl-12 group">
+                            <div
+                                class="absolute left-0 top-1 size-7 bg-white border-2 border-accent rounded-full flex items-center justify-center z-10 shadow-sm transition-transform group-hover:scale-110">
+                                <div class="size-2 bg-accent rounded-full"></div>
+                            </div>
+                            <div
+                                class="bg-white border border-border-subtle rounded-xl p-8 hover:border-accent/40 hover:shadow-lg transition-all">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-3 mb-3">
+                                            <span
+                                                class="text-xs font-black text-accent tracking-[0.1em] uppercase bg-accent/10 px-3 py-1 rounded">Q1
+                                                Initiatives</span>
+                                            <span
+                                                class="px-2.5 py-1 bg-red-50 text-red-600 text-[10px] font-bold rounded border border-red-100 uppercase tracking-tighter">Critical
+                                                P1</span>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Payment Gateway Integration
+                                        </h3>
+                                        <p class="text-slate-500 text-base leading-relaxed max-w-2xl">Establishing
+                                            robust settlement rails between merchant accounts and external banking
+                                            networks.</p>
+                                    </div>
+                                    <div class="flex items-center gap-12 shrink-0">
+                                        <div class="text-center w-20">
+                                            <p
+                                                class="text-[10px] text-slate-400 uppercase font-black tracking-widest mb-1">
+                                                Effort</p>
+                                            <div
+                                                class="size-10 mx-auto flex items-center justify-center rounded-lg bg-slate-100 text-slate-900 font-black text-lg">
+                                                L</div>
+                                        </div>
+                                        <div class="w-48">
+                                            <div
+                                                class="flex justify-between text-[11px] font-bold text-slate-900 mb-2 uppercase">
+                                                <span>Pipeline Progress</span>
+                                                <span class="text-accent">15%</span>
+                                            </div>
+                                            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                                                <div
+                                                    class="bg-accent h-full w-[15%] rounded-full shadow-[0_0_8px_rgba(37,99,235,0.3)]">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative pl-12 group">
+                            <div
+                                class="absolute left-0 top-1 size-7 bg-white border-2 border-slate-200 rounded-full flex items-center justify-center z-10 shadow-sm group-hover:border-accent transition-colors">
+                                <div class="size-2 bg-slate-200 group-hover:bg-accent rounded-full"></div>
+                            </div>
+                            <div
+                                class="bg-white border border-border-subtle rounded-xl p-8 hover:border-accent/40 hover:shadow-lg transition-all">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-3 mb-3">
+                                            <span
+                                                class="text-xs font-black text-slate-400 tracking-[0.1em] uppercase px-3 py-1 bg-slate-50 rounded">Q1
+                                                Initiatives</span>
+                                            <span
+                                                class="px-2.5 py-1 bg-red-50 text-red-600 text-[10px] font-bold rounded border border-red-100 uppercase tracking-tighter">Critical
+                                                P1</span>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Service Banking Core Refactor
+                                        </h3>
+                                        <p class="text-slate-500 text-base leading-relaxed max-w-2xl">Modernizing
+                                            legacy Java monolith to microservices architecture to improve
+                                            maintainability and deployment speed.</p>
+                                    </div>
+                                    <div class="flex items-center gap-12 shrink-0">
+                                        <div class="text-center w-20">
+                                            <p
+                                                class="text-[10px] text-slate-400 uppercase font-black tracking-widest mb-1">
+                                                Effort</p>
+                                            <div
+                                                class="size-10 mx-auto flex items-center justify-center rounded-lg bg-slate-100 text-slate-900 font-black text-lg">
+                                                M</div>
+                                        </div>
+                                        <div class="w-48">
+                                            <div
+                                                class="flex justify-between text-[11px] font-bold text-slate-400 mb-2 uppercase">
+                                                <span>Planning Phase</span>
+                                                <span>Not Started</span>
+                                            </div>
+                                            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                                                <div class="bg-slate-200 h-full w-0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative pl-12 group">
+                            <div
+                                class="absolute left-0 top-1 size-7 bg-white border-2 border-slate-200 rounded-full flex items-center justify-center z-10 shadow-sm group-hover:border-accent transition-colors">
+                                <div class="size-2 bg-slate-200 group-hover:bg-accent rounded-full"></div>
+                            </div>
+                            <div
+                                class="bg-white border border-border-subtle rounded-xl p-8 hover:border-accent/40 hover:shadow-lg transition-all opacity-80 group-hover:opacity-100">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-3 mb-3">
+                                            <span
+                                                class="text-xs font-black text-slate-400 tracking-[0.1em] uppercase px-3 py-1 bg-slate-50 rounded">Q2
+                                                Forecast</span>
+                                            <span
+                                                class="px-2.5 py-1 bg-amber-50 text-amber-600 text-[10px] font-bold rounded border border-amber-100 uppercase tracking-tighter">Strategic
+                                                P2</span>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Merchant Portal Upgrade
+                                        </h3>
+                                        <p class="text-slate-500 text-base leading-relaxed max-w-2xl">Enhancing
+                                            dashboard capabilities for merchants with real-time analytics and
+                                            self-service reporting.</p>
+                                    </div>
+                                    <div class="flex items-center gap-12 shrink-0">
+                                        <div class="text-center w-20">
+                                            <p
+                                                class="text-[10px] text-slate-400 uppercase font-black tracking-widest mb-1">
+                                                Effort</p>
+                                            <div
+                                                class="size-10 mx-auto flex items-center justify-center rounded-lg bg-slate-100 text-slate-900 font-black text-lg">
+                                                S</div>
+                                        </div>
+                                        <div class="w-48">
+                                            <div
+                                                class="flex justify-between text-[11px] font-bold text-slate-400 mb-2 uppercase">
+                                                <span>Scheduled</span>
+                                                <span>H2 Focus</span>
+                                            </div>
+                                            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                                                <div class="bg-slate-200 h-full w-0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="mt-16 py-8 border-t border-slate-200 flex flex-wrap items-center justify-center gap-12 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">
+                        <span class="text-slate-500 font-black">Effort Sizing Legend:</span>
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="size-6 flex items-center justify-center rounded bg-white border border-slate-200 text-slate-900">S</span>
+                            <span>Small (Up to 2w)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="size-6 flex items-center justify-center rounded bg-white border border-slate-200 text-slate-900">M</span>
+                            <span>Medium (1 month)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="size-6 flex items-center justify-center rounded bg-white border border-slate-200 text-slate-900">L</span>
+                            <span>Large (1 quarter)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="size-6 flex items-center justify-center rounded bg-white border border-slate-200 text-slate-900">XL</span>
+                            <span>Enterprise (H1/H2)</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <footer class="px-10 py-6 border-t border-border-subtle bg-white mt-12">
+                <div
+                    class="flex justify-between items-center text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                    <p>© 2025 Banking Services Group • Technology Strategy Confidential</p>
+                    <div class="flex gap-4">
+                        <a class="hover:text-accent transition-colors" href="#">Governance Policy</a>
+                        <a class="hover:text-accent transition-colors" href="#">Risk Framework</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+</body>
+
+</html>

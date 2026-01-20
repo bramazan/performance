@@ -1,0 +1,228 @@
+project,title,date,is_feature,is_fix,is_refactor,is_config
+bank-integration,Delete field platformId in start-transaction request model.,2025-11-17 17:45:00+03:00,False,False,False,False
+bank-integration,change certificates,2025-11-04 16:48:02+03:00,False,False,True,True
+bank-integration,gitignore change,2025-11-04 16:45:09+03:00,False,False,True,False
+bank-integration,prod-certificate-fix add new certificate,2025-11-04 15:55:46+03:00,False,True,False,True
+bank-integration,Add referenceId,2025-10-24 11:27:13+03:00,True,False,False,False
+bank-integration,Add credit prod certificate and env. defination.,2025-10-23 13:42:47+03:00,True,False,False,True
+bank-integration,Merge branch 'TSB-625-env' into 'main',2025-10-10 16:46:04+03:00,False,False,False,True
+bank-integration,Fix.,2025-10-10 16:37:24+03:00,False,True,False,False
+bank-integration,add card getCreditCardInfo endpoint env.,2025-10-10 15:23:00+03:00,True,False,False,True
+bank-integration,Fix .,2025-10-10 14:21:32+03:00,False,True,False,False
+bank-integration,Merge branch 'main' into 'TSB-625',2025-10-10 14:09:21+03:00,False,False,False,False
+bank-integration,Add card prod certificates,2025-10-10 13:26:32+03:00,True,False,False,True
+bank-integration,add appsettings.stage.json,2025-09-17 11:31:34+03:00,True,False,False,False
+bank-integration,fix trace-id,2025-09-15 15:37:14+03:00,False,True,False,False
+bank-integration,trace-id eklenmesi,2025-09-15 15:18:31+03:00,False,False,False,False
+bank-integration,Add StartTransactionRequest productId key,2025-08-29 16:53:18+03:00,True,False,False,False
+bank-integration,Add new endpoint (get product-list) and change payment-plan,2025-08-28 17:36:29+03:00,True,False,False,False
+odeal-gateway,Add fatura-stg in orgins,2025-12-24 12:45:34+03:00,True,False,False,False
+odeal-gateway,"Remove ""*"" defination in orgins.",2025-12-22 15:35:20+03:00,False,False,False,False
+odeal-gateway,Add https://portal.odeal.com endpoint for config.orgins,2025-11-03 15:36:31+03:00,True,False,False,True
+odeal-gateway,add erebor-endpoints,2025-10-31 10:47:47+03:00,True,False,False,False
+odeal-gateway,Fix,2025-10-31 08:14:46+03:00,False,True,False,False
+odeal-gateway,Add erebor endpoints.,2025-10-30 14:23:10+03:00,True,False,False,False
+odeal-gateway,Add retail endpoints.,2025-10-01 17:00:33+03:00,True,False,False,False
+credit-manager,fix IsNewCustomer Fix.,2025-12-11 09:40:05+03:00,False,True,False,False
+credit-manager,Add log information for producer and change approved status.,2025-12-10 17:58:38+03:00,True,False,False,False
+credit-manager,refactor,2025-12-01 10:56:13+03:00,False,False,True,False
+credit-manager,Add new endpoint for update isApprovedFlag to false. Fronted need it.,2025-11-20 11:01:54+03:00,True,False,False,False
+credit-manager,Remove platformId field in start transaction request model.,2025-11-17 14:56:32+03:00,False,False,False,False
+credit-manager,Change appsettings files.,2025-11-14 13:24:45+03:00,False,False,True,False
+credit-manager,Add terminated status endpoint.,2025-11-10 15:53:04+03:00,True,False,False,False
+credit-manager,pre-approved performance fix.,2025-11-10 11:28:20+03:00,False,True,False,False
+credit-manager,Change exception response code 400 to 200,2025-11-06 10:39:32+03:00,False,False,True,False
+credit-manager,Prod fix,2025-11-04 11:51:27+03:00,False,True,False,False
+credit-manager,fix step 1,2025-11-04 10:53:53+03:00,False,True,False,False
+credit-manager,Prod env.,2025-10-30 09:35:35+03:00,False,False,False,True
+credit-manager,It changed for tests. so Fix get-credit-status endpoint for prod.,2025-10-24 13:33:09+03:00,False,True,False,False
+credit-manager,fix security alert,2025-10-24 11:01:10+03:00,False,True,False,False
+credit-manager,Prepare for prod,2025-10-24 10:27:38+03:00,False,False,False,False
+credit-manager,fix.,2025-10-15 16:33:00+03:00,False,True,False,False
+credit-manager,change payment-plan field,2025-10-15 15:25:15+03:00,False,False,True,False
+credit-manager,Add IsExpired value for Terminated,2025-10-15 11:14:39+03:00,True,False,False,False
+credit-manager,change response field RemainingAmount,2025-10-10 15:27:59+03:00,False,False,True,False
+credit-manager,Change get-credit-status endpoint BankRedirectionUrl,2025-10-10 13:29:09+03:00,False,False,True,False
+credit-manager,TimeToLiveSeconds değeri 10 dk olarak değiştirildi. test için,2025-10-09 15:01:59+03:00,False,False,False,False
+credit-manager,Payment Plan request add limitRefereneceId field.,2025-10-09 09:10:10+03:00,True,False,False,False
+credit-manager,Add a new endpoint for sch. update IsApprovedFlag value.,2025-10-07 14:04:52+03:00,True,False,False,False
+credit-manager,test callback service for producer,2025-10-07 10:31:15+03:00,False,False,False,False
+credit-manager,test callback and add start-transaction isNewCustomer,2025-10-07 09:58:14+03:00,True,False,False,False
+credit-manager,test for callback url referenceId,2025-10-05 23:22:56+03:00,False,False,False,False
+credit-manager,Test producer,2025-10-03 15:57:05+03:00,False,False,False,False
+credit-manager,Add CreditUsageDate and IsApprovedFlag field in credit table,2025-10-03 11:34:59+03:00,True,False,False,False
+credit-manager,Add validation for get-credit-status update.,2025-09-25 13:57:24+03:00,True,False,False,False
+credit-manager,Change get-credit-status response Code field,2025-09-22 15:46:00+03:00,False,False,True,False
+credit-manager,Add Newston.Json,2025-09-19 17:30:52+03:00,True,False,False,False
+credit-manager,consumer fix,2025-09-19 16:17:00+03:00,False,True,False,False
+credit-manager,change callbackurl,2025-09-19 15:57:34+03:00,False,False,True,False
+credit-manager,fix for getCreditStatus,2025-09-19 14:11:48+03:00,False,True,False,False
+credit-manager,"Add field ""bankRedirectUrl"" in GetCreditStatusResponse.cs",2025-09-19 14:00:08+03:00,True,False,False,False
+credit-manager,"Add field ""bankRedirectUrl"" in GetCreditStatusResponse.cs",2025-09-19 13:59:11+03:00,True,False,False,False
+credit-manager,consumer fail check,2025-09-18 16:44:40+03:00,False,False,False,False
+credit-manager,consumer fix,2025-09-18 15:01:04+03:00,False,True,False,False
+credit-manager,consumer fix,2025-09-18 14:53:49+03:00,False,True,False,False
+credit-manager,change callback url method.,2025-09-18 10:46:22+03:00,False,False,True,False
+credit-manager,Add parameter for callbackUrl.,2025-09-17 14:00:14+03:00,True,False,False,False
+credit-manager,Add control referenceId for save Credit to test.,2025-09-17 13:30:03+03:00,True,False,False,False
+credit-manager,check credit with referenceId,2025-09-17 13:21:08+03:00,False,False,False,False
+credit-manager,Change producer endpoint,2025-09-17 13:18:20+03:00,False,False,True,False
+credit-manager,Add traceId for consumer,2025-09-16 07:33:08+03:00,True,False,False,False
+credit-manager,fix trace-id,2025-09-15 17:02:50+03:00,False,True,False,False
+credit-manager,trace-id fix,2025-09-15 16:57:30+03:00,False,True,False,False
+credit-manager,Merge branch 'TSB-342' into 'main',2025-09-15 16:35:57+03:00,False,False,False,False
+credit-manager,fix,2025-09-15 16:31:37+03:00,False,True,False,False
+credit-manager,fix trace-id,2025-09-15 16:25:54+03:00,False,True,False,False
+credit-manager,fix,2025-09-15 15:52:21+03:00,False,True,False,False
+credit-manager,Add trace-id,2025-09-15 15:45:30+03:00,True,False,False,False
+credit-manager,fix consumer,2025-09-15 13:38:15+03:00,False,True,False,False
+credit-manager,log fix,2025-09-12 11:44:22+03:00,False,True,False,False
+credit-manager,log fix,2025-09-12 10:44:08+03:00,False,True,False,False
+credit-manager,log fix,2025-09-12 09:46:09+03:00,False,True,False,False
+credit-manager,log fix,2025-09-12 08:33:52+03:00,False,True,False,False
+credit-manager,fix,2025-09-12 00:58:50+03:00,False,True,False,False
+credit-manager,fix,2025-09-11 15:43:47+03:00,False,True,False,False
+credit-manager,fix,2025-09-11 14:42:41+03:00,False,True,False,False
+credit-manager,fix,2025-09-11 14:21:29+03:00,False,True,False,False
+credit-manager,CreditPaymentPlan db update,2025-09-11 09:14:26+03:00,False,False,True,False
+credit-manager,fix,2025-09-10 15:10:30+03:00,False,True,False,False
+credit-manager,fix,2025-09-10 12:28:20+03:00,False,True,False,False
+credit-manager,delete http_status_code column in RequestResponseLog,2025-09-10 09:50:25+03:00,False,False,False,False
+credit-manager,apply performance getpaymentplan endpoint,2025-09-09 15:03:55+03:00,False,False,False,False
+credit-manager,fix appsettings.stage.json,2025-09-08 18:00:08+03:00,False,True,False,False
+credit-manager,add appsettings.stage.json,2025-09-08 17:41:45+03:00,True,False,False,False
+credit-manager,Add statüs for get-credit-status endpoint.,2025-09-08 15:40:10+03:00,True,False,False,False
+credit-manager,Fix appsettings.json and Add paymentDate in paymentPlan service.,2025-09-08 15:11:13+03:00,False,True,False,False
+credit-manager,Change SavePaymentPlan method,2025-09-08 12:50:21+03:00,False,False,True,False
+credit-manager,fixBaseUrl,2025-09-08 11:39:24+03:00,False,True,False,False
+credit-manager,fixBaseUrl,2025-09-08 11:29:30+03:00,False,True,False,False
+credit-manager,fixBaseUrl,2025-09-08 11:25:39+03:00,False,True,False,False
+credit-manager,Refactor code,2025-09-08 11:13:23+03:00,False,False,True,False
+credit-manager,change log stack,2025-09-05 16:35:09+03:00,False,False,True,False
+credit-manager,change producer endpoint,2025-09-05 15:30:04+03:00,False,False,True,False
+credit-manager,Change producer endpoint,2025-09-05 14:11:55+03:00,False,False,True,False
+credit-manager,Prodecer endpoint change,2025-09-05 13:58:29+03:00,False,False,True,False
+credit-manager,add connectionString,2025-09-05 13:43:50+03:00,True,False,False,False
+credit-manager,rabbitmq config add,2025-09-05 13:17:11+03:00,True,False,False,True
+credit-manager,Change Producer and Consumer stack,2025-09-05 12:09:03+03:00,False,False,True,False
+credit-manager,PreApprovedLimit fix,2025-09-05 10:02:07+03:00,False,True,False,False
+credit-manager,Kredi listeleme için endpoint response model eklenmesi.,2025-09-04 22:12:56+03:00,False,False,False,False
+credit-manager,Fixed catch block and refactor code.,2025-09-03 16:39:28+03:00,False,True,False,False
+credit-manager,Add Response Models Requests and Responses,2025-09-03 00:42:59+03:00,True,False,False,False
+credit-manager,Editted Response model,2025-09-01 14:36:39+03:00,False,False,False,False
+credit-manager,Response edited.,2025-09-01 14:18:08+03:00,False,False,False,False
+credit-manager,Check validation control,2025-08-29 17:42:41+03:00,False,False,False,False
+credit-manager,edit,2025-08-29 17:36:04+03:00,False,False,False,False
+credit-manager,add log,2025-08-29 17:30:00+03:00,True,False,False,False
+credit-manager,Add productId for paymentPlan and startTransaction,2025-08-29 16:59:24+03:00,True,False,False,False
+credit-manager,Edit productList endpoint and prepare paymentList,2025-08-28 17:52:18+03:00,False,False,False,False
+credit-manager,editted classes,2025-08-28 14:22:18+03:00,False,False,False,False
+credit-manager,editted class v1,2025-08-28 14:06:10+03:00,False,False,False,False
+credit-manager,Add Product List endpoint.,2025-08-27 11:30:15+03:00,True,False,False,False
+credit-manager,Log configuration,2025-08-27 10:54:55+03:00,False,False,False,True
+credit-manager,Add log properties.,2025-08-25 09:42:22+03:00,True,False,False,False
+credit-manager,Add log,2025-08-22 16:24:21+03:00,True,False,False,False
+credit-manager,Reference Id fix,2025-08-19 14:11:41+03:00,False,True,False,False
+credit-manager,Delete Callback class,2025-08-18 15:07:15+03:00,False,False,False,False
+credit-manager,Callback consumer art. fix,2025-08-15 17:34:24+03:00,False,True,False,False
+credit-manager,Callback endpoint Fix,2025-08-15 17:06:23+03:00,False,True,False,False
+credit-manager,Callback fix,2025-08-15 15:45:42+03:00,False,True,False,False
+credit-manager,Add requireds for requests.,2025-08-13 15:26:06+03:00,True,False,False,False
+credit-manager,service Exception Handled.,2025-08-13 14:55:45+03:00,False,False,False,False
+credit-manager,pre-approved-fix,2025-08-13 14:02:58+03:00,False,True,False,False
+credit-manager,add swagger path,2025-08-13 10:50:36+03:00,True,False,False,False
+credit-manager,Basepathurl update,2025-08-13 10:42:48+03:00,False,False,True,False
+credit-manager,credit-manager add path,2025-08-13 10:33:27+03:00,True,False,False,False
+credit-manager,Add credit endpoints and add connection with fiba-gateway,2025-08-13 09:31:02+03:00,True,False,False,False
+credit-manager,control commit,2025-07-31 15:25:06+03:00,False,False,False,False
+portal-manager,Revert changes on SsoController.cs and ClientIpMiddleware.cs classes,2025-12-25 13:50:09+03:00,False,False,True,False
+portal-manager,check ClientIp,2025-12-24 11:42:06+03:00,False,False,False,False
+portal-manager,valide clientIp value,2025-12-24 11:16:59+03:00,False,False,False,False
+portal-manager,check context,2025-12-24 10:21:16+03:00,False,False,False,False
+portal-manager,fix.,2025-12-24 09:31:55+03:00,False,True,False,False
+portal-manager,fix,2025-12-23 18:12:45+03:00,False,True,False,False
+portal-manager,Merge remote-tracking branch 'origin/add-card-controller' into add-card-controller,2025-12-23 18:06:05+03:00,True,False,False,False
+portal-manager,fix.,2025-12-23 18:05:49+03:00,False,True,False,False
+portal-manager,Add CardController,2025-12-03 15:37:46+03:00,True,False,False,False
+portal-manager,Add CardController,2025-12-03 15:37:18+03:00,True,False,False,False
+portal-manager,add log,2025-11-24 09:13:20+03:00,True,False,False,False
+portal-manager,fix,2025-11-21 11:58:49+03:00,False,True,False,False
+portal-manager,change appsettings,2025-11-21 11:39:01+03:00,False,False,True,False
+portal-manager,fix webhook,2025-11-21 11:38:01+03:00,False,True,False,False
+portal-manager,Add responseCode and responseMessage field for pre-approved-limit response,2025-11-20 15:47:12+03:00,True,False,False,False
+portal-manager,Add new endpoint for update isApprovedFlag to false.,2025-11-20 12:16:27+03:00,True,False,False,False
+portal-manager,Add isNewCustomer field for get-credit-status response model.,2025-11-19 15:07:30+03:00,True,False,False,False
+portal-manager,change appsettings.json,2025-11-14 14:03:20+03:00,False,False,True,False
+portal-manager,Add zapierWebhook,2025-11-10 13:15:11+03:00,True,False,False,False
+portal-manager,GetPaymentPlanList endpoint refactor for performance.,2025-11-07 11:26:26+03:00,False,False,True,False
+portal-manager,rename endpoint name.,2025-10-31 11:23:04+03:00,False,False,False,False
+portal-manager,Change appsettings files for env. definitaion.,2025-10-31 10:12:58+03:00,False,False,True,True
+portal-manager,Change response,2025-10-30 16:56:11+03:00,False,False,True,False
+portal-manager,Change request model,2025-10-30 16:47:16+03:00,False,False,True,False
+portal-manager,Merge remote-tracking branch 'origin/adapter-pattern-update' into adapter-pattern-update,2025-10-30 16:37:28+03:00,False,False,True,False
+portal-manager,Add Product Endpoint.,2025-10-30 16:37:18+03:00,True,False,False,False
+portal-manager,fix,2025-10-15 16:52:50+03:00,False,True,False,False
+portal-manager,Add new field for getProfiles,2025-10-15 13:50:23+03:00,True,False,False,False
+portal-manager,change response field RemainingAmount,2025-10-10 15:27:17+03:00,False,False,True,False
+portal-manager,Change get-credit-status response field,2025-10-10 13:37:36+03:00,False,False,True,False
+portal-manager,Add new field for retail/profile,2025-10-09 16:39:58+03:00,True,False,False,False
+portal-manager,"Add fields for payment-plan which are bsmv,kkdf, etcs.",2025-10-07 13:28:55+03:00,True,False,False,False
+portal-manager,Add isNewCustomer field for start-transaction response,2025-10-07 10:22:18+03:00,True,False,False,False
+portal-manager,Add fields get-credit-status response,2025-10-07 09:48:57+03:00,True,False,False,False
+portal-manager,Fix paymentPlan response,2025-10-03 13:25:10+03:00,False,True,False,False
+portal-manager,Add retail properties,2025-10-01 16:45:49+03:00,True,False,False,False
+portal-manager,Add retail,2025-10-01 16:45:00+03:00,True,False,False,False
+portal-manager,Add creditUsageFee for PaymentPlan Response,2025-09-18 17:03:23+03:00,True,False,False,False
+portal-manager,Add insurance for payment-plan response,2025-09-15 11:06:41+03:00,True,False,False,False
+portal-manager,fix,2025-09-10 12:28:44+03:00,False,True,False,False
+portal-manager,add ProductId value for get-payment-plan response.,2025-09-09 16:59:19+03:00,True,False,False,False
+portal-manager,Change savetransaction response.,2025-09-09 16:52:28+03:00,False,False,True,False
+card-manager,Add get-card-permission and update-card-permission endpoints.,2025-10-16 09:12:58+03:00,True,False,False,False
+card-manager,Update courier method.,2025-10-10 11:29:22+03:00,False,False,True,False
+card-manager,Get Transaction List for old card after change and replace process.,2025-08-18 11:17:25+03:00,False,False,True,False
+fiba-gateway,Changing for Fiba Gateway urls and add cetificate.,2025-08-01 14:32:29+03:00,True,False,False,False
+service-banking-scheduler,Add credit terminated sch.,2025-11-11 00:49:58+03:00,True,False,False,False
+service-banking-scheduler,Add credit-manager sch. for UpdateCreditApproved,2025-10-07 17:02:01+03:00,True,False,False,False
+member,check-error-login endpoint fix,2025-12-18 15:17:14+03:00,False,True,False,False
+member,check-error-login endpoint fix,2025-12-18 14:54:26+03:00,False,True,False,False
+member,check-error-login endpoint fix,2025-12-18 14:43:39+03:00,False,True,False,False
+member,check-error-login endpoint fix,2025-12-18 14:20:58+03:00,False,True,False,False
+member,check-error-login endpoint fix,2025-12-12 15:09:12+03:00,False,True,False,False
+member,check-error-login endpoint fix,2025-12-12 14:50:55+03:00,False,True,False,False
+member,add check-error-login endpoint fix,2025-12-10 12:02:08+03:00,False,True,False,False
+member,add check-error-login endpoint,2025-12-09 14:52:17+03:00,True,False,False,False
+member,TCO-768 -NPS- virtualPos refresh token bug fixed and VirtualProductTypesEnum updated,2025-11-18 01:47:05+03:00,False,True,False,False
+member,add,2025-11-13 10:30:09+03:00,True,False,False,False
+member,add,2025-11-13 10:28:58+03:00,True,False,False,False
+member,"Add lastLogin,lastError and errorCount values for merchantlistwithcredential endpoint.",2025-11-03 13:50:01+03:00,True,False,False,False
+member,"Add lastLogin,lastError and errorCount values for merchantlistwithcredential endpoint.",2025-11-03 13:46:16+03:00,True,False,False,False
+otp,Add new request parameter which name is isOtpSms fpr api/sms endpoint,2025-09-16 07:13:02+03:00,True,False,False,False
+otp,Add control for Otp verify,2025-08-19 17:55:37+03:00,True,False,False,False
+otp,Add control for Otp verify,2025-08-19 17:31:11+03:00,True,False,False,False
+otp,Add control for Otp verify,2025-08-19 15:39:22+03:00,True,False,False,False
+otp,Otp validasyon,2025-08-15 12:00:08+03:00,False,False,False,False
+otp,Otp validasyon,2025-08-15 11:19:53+03:00,False,False,False,False
+otp,Otp validasyon,2025-08-14 20:50:12+03:00,False,False,False,False
+otp,DURATION_OF_VERIFICATION and DURATION_OF_AVAILABILITY value read on git,2025-08-14 13:16:29+03:00,False,False,False,False
+otp,Generate otp change for member-id. It will work like with phone.,2025-08-14 10:42:15+03:00,False,False,True,False
+credential,revert commit,2025-12-22 13:52:04+03:00,False,False,False,False
+credential,Add new endpoint for security team.,2025-12-22 13:46:23+03:00,True,False,False,False
+credential,Add new endpoint for security team.,2025-12-22 13:46:19+03:00,True,False,False,False
+credential,revert commit,2025-12-22 13:38:04+03:00,False,False,False,False
+credential,Add new endpoint for security team.,2025-12-22 13:27:19+03:00,True,False,False,False
+credential,Add new endpoint for security team.,2025-12-22 13:27:15+03:00,True,False,False,False
+credential,Add new rule for change password.,2025-12-22 00:50:02+03:00,True,False,False,False
+credential,Add new rule for change password.,2025-12-19 11:25:02+03:00,True,False,False,False
+credential,Fix last error login,2025-12-18 14:54:14+03:00,False,True,False,False
+credential,Fix last error login,2025-12-18 14:43:48+03:00,False,True,False,False
+credential,Fix last error login,2025-12-18 14:19:15+03:00,False,True,False,False
+credential,Fix last error login,2025-12-18 11:03:53+03:00,False,True,False,False
+credential,Fix last error login,2025-12-12 15:33:16+03:00,False,True,False,False
+credential,Fix last error login,2025-12-12 14:32:34+03:00,False,True,False,False
+credential,Add last error login,2025-12-09 14:38:41+03:00,True,False,False,False
+credential,Add last error login,2025-12-08 13:12:42+03:00,True,False,False,False
+credential,Add last error login,2025-12-08 11:27:57+03:00,True,False,False,False
+credential,Fix,2025-11-13 11:41:23+03:00,False,True,False,False
+credential,Add new endpoint getCredential,2025-11-03 15:59:35+03:00,True,False,False,False
+credential,Add new endpoint getCredential,2025-10-31 17:38:04+03:00,True,False,False,False
+credential,Add new endpoint getCredential,2025-10-31 17:18:05+03:00,True,False,False,False

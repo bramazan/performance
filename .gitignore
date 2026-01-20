@@ -1,0 +1,28 @@
+# Environment files with sensitive data
+.env
+jira.env
+
+# OS files
+.DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Generated outputs (optional - remove lines if you want to commit them)
+# *.xlsx
+# *.csv
