@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Servis Bankacılığı - Ekip Performans Paneli</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(99, 102, 241, 0.6)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-8px) rotateX(2deg);
+            box-shadow:
+                0 20px 60px rgba(99, 102, 241, 0.2),
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .card-3d {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .card-3d-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card-3d:hover .card-3d-inner {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+
+        .metric-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow:
+                0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow:
+                0 35px 60px -15px rgba(99, 102, 241, 0.3),
+                0 0 0 1px rgba(99, 102, 241, 0.2);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+        }
+
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+        }
+
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(168, 85, 247, 0.5), rgba(236, 72, 153, 0.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .team-avatar {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .stat-glow {
+            text-shadow: 0 0 40px currentColor;
+        }
+
+        .floating-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-white antialiased overflow-x-hidden">
+    <!-- Background Orbs -->
+    <div class="floating-orb w-96 h-96 bg-indigo-600 top-0 left-0 animate-float"></div>
+    <div class="floating-orb w-80 h-80 bg-purple-600 bottom-0 right-0 animate-float" style="animation-delay: -3s;">
+    </div>
+    <div class="floating-orb w-64 h-64 bg-pink-600 top-1/2 right-1/4 animate-float" style="animation-delay: -1.5s;">
+    </div>
+
+    <div class="relative z-10 min-h-screen flex flex-col">
+
+        <!-- Header -->
+        <header class="sticky top-0 z-50 glass-card border-b border-white/5">
+            <div class="container mx-auto flex h-16 items-center px-6 lg:px-12 max-w-7xl">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/30">
+                        <span class="material-symbols-outlined text-lg text-white">hub</span>
+                    </div>
+                    <div>
+                        <h1 class="text-base font-semibold text-white">Servis Bankacılığı</h1>
+                        <p class="text-xs text-white/50">Performans Paneli</p>
+                    </div>
+                </div>
+
+                <nav class="ml-12 hidden lg:flex items-center gap-8 text-sm">
+                    <a href="#overview" class="text-white font-medium transition-colors hover:text-indigo-400">Özet</a>
+                    <a href="#team" class="text-white/50 font-medium transition-colors hover:text-white">Ekip</a>
+                    <a href="#health" class="text-white/50 font-medium transition-colors hover:text-white">Sağlık</a>
+                    <a href="#projects"
+                        class="text-white/50 font-medium transition-colors hover:text-white">Projeler</a>
+                    <a href="#ecosystem"
+                        class="text-white/50 font-medium transition-colors hover:text-white">Ekosistem</a>
+                </nav>
+
+                <div class="ml-auto flex items-center gap-3">
+                    <button
+                        class="h-9 w-9 rounded-lg glass-card flex items-center justify-center text-white/60 hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-lg">settings</span>
+                    </button>
+                    <div class="h-9 w-9 rounded-full team-avatar flex items-center justify-center text-xs font-bold">Gİ
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 container mx-auto px-6 lg:px-12 py-12 max-w-7xl">
+
+            <!-- Overview Section -->
+            <section id="overview" class="mb-20">
+                <!-- Hero -->
+                <div class="text-center mb-16">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        <span class="text-xs font-medium text-white/70">2025 Yıl Sonu Raporu</span>
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-4 glow-text">
+                        Servis Bankacılığı Ekibi
+                    </h2>
+                    <p class="text-lg text-white/50 max-w-2xl mx-auto">
+                        5 kişilik ekibimiz, elite seviye performans ile bankacılık altyapısını geliştirmektedir.
+                    </p>
+                </div>
+
+                <!-- Metrics Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Completion Rate -->
+                    <div class="card-3d">
+                        <div class="card-3d-inner metric-card rounded-2xl p-6">
+                            <div class="flex items-start justify-between mb-6">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400 to-green-600 flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                                    <span class="material-symbols-outlined text-white">task_alt</span>
+                                </div>
+                                <span
+                                    class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold">Elite</span>
+                            </div>
+                            <p class="text-sm text-white/50 uppercase tracking-wider mb-2">Tamamlanma</p>
+                            <p class="text-4xl font-bold text-emerald-400 stat-glow">%83</p>
+                            <p class="text-xs text-white/40 mt-2">830 / 1,000 issue</p>
+                            <div class="mt-4 h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-emerald-400 to-green-500 rounded-full"
+                                    style="width: 83%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bug Rate -->
+                    <div class="card-3d">
+                        <div class="card-3d-inner metric-card rounded-2xl p-6">
+                            <div class="flex items-start justify-between mb-6">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                                    <span class="material-symbols-outlined text-white">bug_report</span>
+                                </div>
+                                <span
+                                    class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-semibold">Elite</span>
+                            </div>
+                            <p class="text-sm text-white/50 uppercase tracking-wider mb-2">Bug Oranı</p>
+                            <p class="text-4xl font-bold text-indigo-400 stat-glow">%1.8</p>
+                            <p class="text-xs text-white/40 mt-2">18 bug / 1,000 issue</p>
+                            <div class="mt-4 h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full"
+                                    style="width: 98%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Code Contribution -->
+                    <div class="card-3d">
+                        <div class="card-3d-inner metric-card rounded-2xl p-6">
+                            <div class="flex items-start justify-between mb-6">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-400 to-violet-600 flex items-center justify-center shadow-lg shadow-purple-500/30">
+                                    <span class="material-symbols-outlined text-white">commit</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-white/50 uppercase tracking-wider mb-2">Kod Katkısı</p>
+                            <p class="text-4xl font-bold text-purple-400 stat-glow">720</p>
+                            <p class="text-xs text-white/40 mt-2">495 commit + 225 MR</p>
+                            <div class="mt-4 flex items-center gap-2 text-xs text-emerald-400">
+                                <span class="material-symbols-outlined text-sm">trending_up</span>
+                                <span>+186% H2 artış</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Code Reviews -->
+                    <div class="card-3d">
+                        <div class="card-3d-inner metric-card rounded-2xl p-6">
+                            <div class="flex items-start justify-between mb-6">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-400 to-rose-600 flex items-center justify-center shadow-lg shadow-pink-500/30">
+                                    <span class="material-symbols-outlined text-white">rate_review</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-white/50 uppercase tracking-wider mb-2">Code Review</p>
+                            <p class="text-4xl font-bold text-pink-400 stat-glow">1,131</p>
+                            <p class="text-xs text-white/40 mt-2">226 review / kişi</p>
+                            <div class="mt-4 flex items-center gap-2 text-xs text-emerald-400">
+                                <span class="material-symbols-outlined text-sm">groups</span>
+                                <span>Güçlü işbirliği</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section id="team" class="mb-20">
+                <div class="flex items-center justify-between mb-10">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2">Ekip Üyeleri</h2>
+                        <p class="text-white/50 text-sm">5 kişilik servis bankacılığı ekibi</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Gökhan İbrikçi -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-6 gradient-border">
+                        <div class="flex items-start gap-4 mb-6">
+                            <div
+                                class="w-14 h-14 rounded-xl team-avatar flex items-center justify-center text-lg font-bold">
+                                Gİ</div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg">Gökhan İbrikçi</h4>
+                                <p class="text-sm text-white/50">Team Lead</p>
+                            </div>
+                            <span
+                                class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold">A+</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="text-white/50">Kod Katkısı</span>
+                                    <span class="font-semibold">245</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
+                                        style="width: 34%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="text-white/50">Code Review</span>
+                                    <span class="font-semibold text-indigo-400">573</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
+                                        style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/10 text-xs text-white/40 space-y-1">
+                            <p>• Ekibin %51 review yükü</p>
+                            <p>• 12x Q4 büyüme</p>
+                        </div>
+                    </div>
+
+                    <!-- Mert Kaim -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-6">
+                        <div class="flex items-start gap-4 mb-6">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 shadow-lg shadow-blue-500/30 flex items-center justify-center text-lg font-bold">
+                                MK</div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg">Mert Kaim</h4>
+                                <p class="text-sm text-white/50">Developer</p>
+                            </div>
+                            <span
+                                class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold">B+</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="text-white/50">Kod Katkısı</span>
+                                    <span class="font-semibold">188</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"
+                                        style="width: 26%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="text-white/50">MR Kullanımı</span>
+                                    <span class="font-semibold text-emerald-400">%86.7</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-emerald-500 to-green-500 rounded-full"
+                                        style="width: 86.7%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/10 text-xs text-white/40 space-y-1">
+                            <p>• Industry elite MR kullanımı</p>
+                            <p>• %12.3 bug ratio (en iyi)</p>
+                        </div>
+                    </div>
+
+                    <!-- Alican İnan -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-6">
+                        <div class="flex items-start gap-4 mb-6">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 shadow-lg shadow-amber-500/30 flex items-center justify-center text-lg font-bold">
+                                Aİ</div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg">Alican İnan</h4>
+                                <p class="text-sm text-white/50">Developer</p>
+                            </div>
+                            <span
+                                class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold">B+</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="text-white/50">Kod Katkısı</span>
+                                    <span class="font-semibold">287</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"
+                                        style="width: 40%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="text-white/50">Aylık Üretkenlik</span>
+                                    <span class="font-semibold text-amber-400">54.2/ay</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"
+                                        style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/10 text-xs text-white/40 space-y-1">
+                            <p>• 17x üretkenlik artışı 🚀</p>
+                            <p>• En yüksek volume</p>
+                        </div>
+                    </div>
+
+                    <!-- Ahmet Umur Gültekin -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-6">
+                        <div class="flex items-start gap-4 mb-6">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 shadow-lg shadow-cyan-500/30 flex items-center justify-center text-lg font-bold">
+                                AG</div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg">Ahmet Umur Gültekin</h4>
+                                <p class="text-sm text-white/50">Product Owner</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="text-white/50">Jira Katkısı</span>
+                                    <span class="font-semibold">194 issue</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full"
+                                        style="width: 69%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-white/50">Ekip Payı</span>
+                                <span class="font-semibold">%19.4</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/10 text-xs text-white/40 space-y-1">
+                            <p>• Tutarlı teslimat</p>
+                            <p>• Backlog yönetimi</p>
+                        </div>
+                    </div>
+
+                    <!-- Hacı Burak Tahmaz -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-6">
+                        <div class="flex items-start gap-4 mb-6">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 shadow-lg shadow-teal-500/30 flex items-center justify-center text-lg font-bold">
+                                BT</div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg">Hacı Burak Tahmaz</h4>
+                                <p class="text-sm text-white/50">QA Developer</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="text-white/50">Jira Katkısı</span>
+                                    <span class="font-semibold">100 issue</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full"
+                                        style="width: 36%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-white/50">Ekip Payı</span>
+                                <span class="font-semibold">%10.0</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/10 text-xs text-white/40 space-y-1">
+                            <p>• Kalite odaklı</p>
+                            <p>• %31.3 QA kapsama</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Health Section -->
+            <section id="health" class="mb-20">
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold mb-2">Ekip Sağlığı</h2>
+                    <p class="text-white/50 text-sm">Kapasite, süreç ve iş-yaşam dengesi metrikleri</p>
+                </div>
+
+                <!-- Health Overview Card -->
+                <div class="glass-card rounded-2xl p-8 mb-8 gradient-border">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-400 to-green-600 flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                            <span class="material-symbols-outlined text-white text-2xl">health_and_safety</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Genel Durum: Sağlıklı</h3>
+                            <p class="text-sm text-white/50">Mükemmel iş-yaşam dengesi ve elite kalite</p>
+                        </div>
+                        <div class="ml-auto flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/20">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="text-xs font-medium text-emerald-400">SAĞLIKLI</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="text-center p-4 rounded-xl bg-white/5">
+                            <p class="text-xs text-white/50 uppercase tracking-wider mb-2">Ekip Kapasitesi</p>
+                            <p class="text-2xl font-bold text-emerald-400">Optimal</p>
+                            <p class="text-xs text-white/40 mt-1">5 aktif, risk yok</p>
+                        </div>
+                        <div class="text-center p-4 rounded-xl bg-white/5">
+                            <p class="text-xs text-white/50 uppercase tracking-wider mb-2">Teslim</p>
+                            <p class="text-2xl font-bold">%83</p>
+                            <p class="text-xs text-white/40 mt-1">Elite seviye</p>
+                        </div>
+                        <div class="text-center p-4 rounded-xl bg-white/5">
+                            <p class="text-xs text-white/50 uppercase tracking-wider mb-2">Kod Kalitesi</p>
+                            <p class="text-2xl font-bold text-indigo-400">%1.8</p>
+                            <p class="text-xs text-white/40 mt-1">Bug oranı</p>
+                        </div>
+                        <div class="text-center p-4 rounded-xl bg-white/5">
+                            <p class="text-xs text-white/50 uppercase tracking-wider mb-2">Süreç Uyumu</p>
+                            <p class="text-2xl font-bold text-amber-400">%36</p>
+                            <p class="text-xs text-white/40 mt-1">Hedef: %60+</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Health Metric Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card glass-card-hover rounded-2xl p-6">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-emerald-400">schedule</span>
+                            </div>
+                            <span class="font-medium">İş-Yaşam Dengesi</span>
+                        </div>
+                        <p class="text-4xl font-bold text-emerald-400 stat-glow mb-2">%0.1</p>
+                        <p class="text-sm text-white/40">Hafta sonu çalışma</p>
+                        <div class="mt-4 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+                            <p class="text-xs text-emerald-400">✓ Mükemmel - Tükenmişlik riski yok</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card glass-card-hover rounded-2xl p-6">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-amber-400">alt_route</span>
+                            </div>
+                            <span class="font-medium">MR Kullanımı</span>
+                        </div>
+                        <p class="text-4xl font-bold mb-2">%36</p>
+                        <p class="text-sm text-white/40">Merge Request oranı</p>
+                        <div class="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
+                            <p class="text-xs text-amber-400">⚠ İyileştirme gerekli</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card glass-card-hover rounded-2xl p-6">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-indigo-400">verified</span>
+                            </div>
+                            <span class="font-medium">QA Kapsama</span>
+                        </div>
+                        <p class="text-4xl font-bold text-indigo-400 stat-glow mb-2">%31.3</p>
+                        <p class="text-sm text-white/40">Test çalışması</p>
+                        <div class="mt-4 p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/20">
+                            <p class="text-xs text-indigo-400">✓ Industry elite seviye</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ecosystem Section -->
+            <section id="ecosystem" class="mb-20">
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold mb-2">Ekosistem</h2>
+                    <p class="text-white/50 text-sm">Paydaşlar, bağımlılıklar ve engeller</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Sponsorlar -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <div class="p-4 border-b border-white/10 flex items-center gap-3">
+                            <span class="material-symbols-outlined text-indigo-400">workspace_premium</span>
+                            <h3 class="font-medium">Sponsorlar</h3>
+                        </div>
+                        <div class="p-4 space-y-4">
+                            <div
+                                class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center text-sm font-bold">
+                                    ED</div>
+                                <div>
+                                    <p class="font-medium text-sm">Engin Dumlu</p>
+                                    <p class="text-xs text-white/50">CTO</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-sm font-bold">
+                                    BR</div>
+                                <div>
+                                    <p class="font-medium text-sm">Burak Ramazan</p>
+                                    <p class="text-xs text-white/50">Engineering Manager</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-sm font-bold">
+                                    TY</div>
+                                <div>
+                                    <p class="font-medium text-sm">Tuna Yener</p>
+                                    <p class="text-xs text-white/50">Head of Product</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Engeller -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <div class="p-4 border-b border-white/10 flex items-center gap-3">
+                            <span class="material-symbols-outlined text-red-400">report</span>
+                            <h3 class="font-medium">Engeller</h3>
+                        </div>
+                        <div class="p-4 space-y-3">
+                            <div class="p-4 rounded-xl bg-red-500/10 border border-red-500/20">
+                                <p class="font-medium text-sm text-red-400 mb-1">Fibabanka API Bağımlılıkları</p>
+                                <p class="text-xs text-white/50">MCA, Asıl Kart, Valör projeleri için kritik</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20">
+                                <p class="font-medium text-sm text-amber-400 mb-1">Portal İç Domain Bağımlılıkları</p>
+                                <p class="text-xs text-white/50">Diğer iç domainlere bağımlılık</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bağımlılıklar -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <div class="p-4 border-b border-white/10 flex items-center gap-3">
+                            <span class="material-symbols-outlined text-purple-400">link</span>
+                            <h3 class="font-medium">Bağımlılıklar</h3>
+                        </div>
+                        <div class="p-4 space-y-3">
+                            <div class="flex items-center justify-between py-3 border-b border-white/5">
+                                <span class="text-sm">Fibabanka API</span>
+                                <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">Kritik</span>
+                            </div>
+                            <div class="flex items-center justify-between py-3 border-b border-white/5">
+                                <span class="text-sm">SHFT Ekibi</span>
+                                <span
+                                    class="text-xs px-2 py-1 rounded-full bg-amber-500/20 text-amber-400">Yüksek</span>
+                            </div>
+                            <div class="flex items-center justify-between py-3 border-b border-white/5">
+                                <span class="text-sm">DevOps</span>
+                                <span
+                                    class="text-xs px-2 py-1 rounded-full bg-amber-500/20 text-amber-400">Yüksek</span>
+                            </div>
+                            <div class="flex items-center justify-between py-3">
+                                <span class="text-sm">Regülatör</span>
+                                <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">Kritik</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="mb-20">
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold mb-2">2026 Projeler</h2>
+                    <p class="text-white/50 text-sm">Planlanmış geliştirmeler ve yol haritası</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-card glass-card-hover rounded-2xl p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+                                <span class="material-symbols-outlined text-white">account_balance_wallet</span>
+                            </div>
+                            <span
+                                class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-medium">Q1-Q2</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Valör Sistemi</h4>
+                        <p class="text-sm text-white/50 mb-4">Müşterilerin bekleyen bakiyeye göre komisyonsuz çekim
+                            yapabilmesi.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 rounded-md bg-white/5 text-xs text-white/60">Valör hesaplama</span>
+                            <span class="px-2 py-1 rounded-md bg-white/5 text-xs text-white/60">Komisyon</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card glass-card-hover rounded-2xl p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center shadow-lg">
+                                <span class="material-symbols-outlined text-white">payments</span>
+                            </div>
+                            <span
+                                class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-medium">Q2-Q3</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">POS Tahsilatlı Kredi (MCA)</h4>
+                        <p class="text-sm text-white/50 mb-4">Fibabanka iş birliği ile POS ciro bazlı kredi sistemi.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 rounded-md bg-white/5 text-xs text-white/60">Fibabanka API</span>
+                            <span class="px-2 py-1 rounded-md bg-white/5 text-xs text-white/60">Otomatik tahsilat</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card glass-card-hover rounded-2xl p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg">
+                                <span class="material-symbols-outlined text-white">badge</span>
+                            </div>
+                            <span
+                                class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-medium">Q1-Q2</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Asıl Kart Yapısı</h4>
+                        <p class="text-sm text-white/50 mb-4">Ek kart yapısından ana kart yapısına geçiş.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 rounded-md bg-white/5 text-xs text-white/60">Müşteri edinim</span>
+                            <span class="px-2 py-1 rounded-md bg-white/5 text-xs text-white/60">IBMB</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card glass-card-hover rounded-2xl p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg">
+                                <span class="material-symbols-outlined text-white">sync_alt</span>
+                            </div>
+                            <span
+                                class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-medium">Q3-Q4</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Açık Bankacılık</h4>
+                        <p class="text-sm text-white/50 mb-4">Farklı banka hesap bilgilerini görüntüleme ve işlem yapma.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 rounded-md bg-white/5 text-xs text-white/60">API</span>
+                            <span class="px-2 py-1 rounded-md bg-white/5 text-xs text-white/60">Compliance</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="glass-card border-t border-white/5 py-6">
+            <div class="container mx-auto px-6 lg:px-12 max-w-7xl">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <p class="text-xs text-white/40">© 2025 Servis Bankacılığı Ekibi - Ödeal</p>
+                    <p class="text-xs text-white/40">Son güncelleme: Ocak 2026</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
