@@ -1,4 +1,0 @@
-project_id,mr_id,title,author,author_name,created_at,merged_at,web_url,lead_time_hours,month
-78,26,prod config eklendi.,gokhan.ibrikci,Gökhan İbrikçi,2024-07-29 15:27:20.224,2024-07-29 15:27:30.398,https://git.odeal.com/odeal/vpos-integration/payint-scheduler/-/merge_requests/26,0.002826111111111111,2024-07
-78,25,Stage,gokhan.ibrikci,Gökhan İbrikçi,2024-07-29 14:19:34.540,2024-07-29 14:19:42.432,https://git.odeal.com/odeal/vpos-integration/payint-scheduler/-/merge_requests/25,0.002192222222222222,2024-07
-74,19,PI-FormRefactor,gokhan.ibrikci,Gökhan İbrikçi,2024-05-21 15:50:07.555,2024-05-21 15:50:28.432,https://git.odeal.com/odeal/digital-growth/register-odeal/-/merge_requests/19,0.005799166666666666,2024-05

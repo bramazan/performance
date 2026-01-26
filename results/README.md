@@ -1,158 +1,131 @@
-# Service Banking Team - 2025 Performance Reports
+# Odeal Performance Reports
 
-**Team:** Service Banking (Odeal)
-**Period:** 2025-01-01 to 2025-12-31
-**Generated:** 2026-01-20
-**Team Size:** 3 (1 Team Lead + 2 Developers)
+**Organization:** Odeal
+**Last Updated:** 2026-01-22
+**Structure:** Yıl bazlı tarihsel raporlar
 
 ---
 
 ## 🚀 Quick Start
 
-### BURADAN BAŞLAYIN! ⭐
+### 2025 Yılı Raporları
 
-**[FINAL-SUMMARY-Service-Banking-Team-2025.md](FINAL-SUMMARY-Service-Banking-Team-2025.md)**
+**Team Summary:** [FINAL-SUMMARY-Service-Banking-Team-2025.md](FINAL-SUMMARY-Service-Banking-Team-2025.md)
 
-- 5 dakikada ekip overview
-- 3 kişi karşılaştırma
-- Strengths & recommendations
-- 2026 roadmap
+**Project Insights:** [SERVICE-BANKING-JIRA-INSIGHTS-2025.md](SERVICE-BANKING-JIRA-INSIGHTS-2025.md)
 
 ---
 
-## 📊 Individual Reports
+## 📊 2025 Bireysel Raporlar
 
-### 1. Gökhan İbrikçi - Team Lead
+### Team Leaders
 
-**📄 [gokhan-ibrikci-ultimate-report-2025.md](gokhan-ibrikci-ultimate-report-2025.md)**
+1. **Gökhan İbrikçi** - Team Lead (92/100 - A+ EXCELLENT)
+   - [2025/gokhan-ibrikci/team-lead-report-2025.md](2025/gokhan-ibrikci/team-lead-report-2025.md)
+   - 573 code reviews, 0% weekend work, 12x growth trend
 
-**Score:** 92/100 (A+ EXCELLENT TEAM LEAD)
+2. **Metin Isfendiyar** - Business Analyst
+   - [2025/metin-isfendiyar/ba-report-2025.md](2025/metin-isfendiyar/ba-report-2025.md)
 
-**Key Metrics:**
-- 573 code reviews (team'in %60+)
-- 0% weekend work
-- 12x growth trend (Q1→Q4)
-- 243 commits
+### Developers
 
-**Summary:** Mükemmel team lead, strong code review culture, perfect work-life balance.
+3. **Mert Kaim** - Developer (75.1/100 - B+ with A+ Practices)
+   - [2025/mert-kaim/developer-report-2025.md](2025/mert-kaim/developer-report-2025.md)
+   - 86.7% MR usage, 12.3% bug ratio, quality-focused
 
----
+4. **Alican İnan** - Developer (70.8/100 - B+ GOOD)
+   - [2025/alican-inan/developer-report-2025.md](2025/alican-inan/developer-report-2025.md)
+   - 17x productivity improvement, 287 total items
 
-### 2. Mert Kaim - Developer
+5. **Resul Bozdemir** - Developer
+   - [2025/resul-bozdemir/developer-report-2025.md](2025/resul-bozdemir/developer-report-2025.md)
 
-**📄 [mert_kaim-developer-report-2025.md](mert_kaim-developer-report-2025.md)**
+6. **Ahmet Saglam** - Developer
+   - [2025/ahmet-saglam/developer-report-2025.md](2025/ahmet-saglam/developer-report-2025.md)
 
-**Score:** 75.1/100 (B+ with A+ Practices)
+7. **Anil Akkaya** - Developer
+   - [2025/anil-akkaya/developer-report-2025.md](2025/anil-akkaya/developer-report-2025.md)
 
-**Key Metrics:**
-- 86.7% MR usage (industry elite!)
-- 12.3% bug ratio (excellent quality)
-- 319 code reviews
-- 163 MRs, 25 commits
+8. **Huseyin Mutlu** - Developer
+   - [2025/huseyin-mutlu/developer-report-2025.md](2025/huseyin-mutlu/developer-report-2025.md)
 
-**Summary:** Best practice role model. Quality > Speed approach. Exemplary MR workflow.
+9. **Mehmet Yetis** - Developer
+   - [2025/mehmet-yetis/developer-report-2025.md](2025/mehmet-yetis/developer-report-2025.md)
 
----
+10. **Volkan Kurt** - Developer
+    - [2025/volkan-kurt/developer-report-2025.md](2025/volkan-kurt/developer-report-2025.md)
 
-### 3. Alican İnan - Developer
-
-**📄 [alican_inan-developer-report-2025.md](alican_inan-developer-report-2025.md)**
-
-**Score:** 70.8/100 (B+ GOOD)
-
-**Transformation:**
-- Payment: 3.2 items/month 🚨
-- Service Banking: 54.2 items/month ⭐⭐⭐
-- **17X IMPROVEMENT!**
-
-**Key Metrics:**
-- 287 total items (top producer)
-- 239 code reviews
-- 29% bug ratio (needs improvement)
-
-**Summary:** Productivity success story. Highly motivated in Service Banking. Focus: quality improvement.
+11. **Yakup Dogan** - Developer
+    - [2025/yakup-dogan/developer-report-2025.md](2025/yakup-dogan/developer-report-2025.md)
 
 ---
 
-## 🎯 Kullanım Kılavuzu
+## 📁 Klasör Yapısı
 
-### Senaryo 1: "Ekipte kim nerede güçlü?"
-
-**Rapor:** FINAL-SUMMARY
-**Cevap:**
-- Leadership: Gökhan (573 reviews)
-- Process: Mert (86.7% MR usage)
-- Productivity: Alican (54.2 items/month)
-
-### Senaryo 2: "Team lead performansı nasıl?"
-
-**Rapor:** gokhan-ibrikci-ultimate-report-2025.md
-**Cevap:** 92/100 (A+) - Excellent team lead. Strong code review culture.
-
-### Senaryo 3: "Alican neden böyle gelişti?"
-
-**Rapor:** alican_inan-developer-report-2025.md
-**Section:** Team Distribution & Productivity Analysis
-**Cevap:** Team değişikliği → motivation ↑ → 17x productivity increase
-
-### Senaryo 4: "MR best practices nedir?"
-
-**Rapor:** mert_kaim-developer-report-2025.md
-**Cevap:** 86.7% MR usage, MR-first workflow, low bug ratio
+```
+results/
+├── README.md                                    # Bu dosya
+├── FINAL-SUMMARY-Service-Banking-Team-2025.md  # Team özet raporu
+├── SERVICE-BANKING-JIRA-INSIGHTS-2025.md        # Jira insights
+└── 2025/                                        # 2025 yılı raporları
+    ├── gokhan-ibrikci/
+    │   └── team-lead-report-2025.md
+    ├── metin-isfendiyar/
+    │   └── ba-report-2025.md
+    ├── mert-kaim/
+    │   └── developer-report-2025.md
+    ├── alican-inan/
+    │   └── developer-report-2025.md
+    └── ...
+```
 
 ---
 
-## 📁 Detaylı Data Erişimi
+## 📊 Ham Veri ve Arşiv
 
-Tüm Excel/CSV dosyaları: **[../dataset/](../dataset/)**
+**Ham Veri:** [../dataset/](../dataset/)
+- Excel/CSV dosyaları
+- Jira analysis sonuçları
+- Arşivlenmiş raporlar
 
-**Excel files içerik:**
-- Summary: Özet stats
-- Commits: Tüm commit detayları
-- MRs Created: Oluşturulan MR'lar
-- MRs Approved: Approve edilen MR'lar
-- MR Comments: Code review yorumları
-
-**Kullanım:**
-- Pivot tables için
-- Spesifik tarih/proje filtreleme
-- Custom analysis
-- Deep-dive investigation
+**Arşiv:** [../dataset/archived-metrics/](../dataset/archived-metrics/)
+- User-metrics klasörleri
+- Geçmiş summary dosyaları
 
 ---
 
-## 🏆 Team Highlights (2025)
+## 🎯 Kullanım Senaryoları
 
-✅ **Achievements:**
-- 1,131 total code reviews
-- 720 total work items
-- Strong collaboration culture
-- Sustainable work patterns (0-0.4% weekend work)
+### Senaryo 1: "2025 yılı bireysel performanslar"
+**Yol:** `2025/<kişi-adı>/` klasörüne git
 
-⚠️ **Focus Areas:**
-- MR process standardization
-- Quality improvement (Alican)
-- Feature development balance
+### Senaryo 2: "Team özet bilgisi"
+**Rapor:** FINAL-SUMMARY-Service-Banking-Team-2025.md
 
----
+### Senaryo 3: "Jira analiz sonuçları"
+**Rapor:** SERVICE-BANKING-JIRA-INSIGHTS-2025.md
 
-## 📞 Quick Reference Card
-
-| Question | Report | Page |
-|----------|--------|------|
-| Overall team status? | FINAL-SUMMARY | All |
-| Team lead assessment? | gokhan-ultimate | Executive Summary |
-| Process best practices? | mert-developer | Process Compliance |
-| Productivity transformation? | alican-developer | Productivity Analysis |
-| Detailed commit data? | ../dataset/ | Excel files |
+### Senaryo 4: "Ham veri analizi"
+**Yol:** `../dataset/` klasörü
 
 ---
 
-**Başlangıç:** FINAL-SUMMARY-Service-Banking-Team-2025.md (5 dakika)
-**Deep-dive:** Individual reports (10-20 dakika each)
-**Data analysis:** ../dataset/ Excel files
+## 🔧 Scripts ve Araçlar
+
+**GitLab Araçları:** [../scripts/gitlab/](../scripts/gitlab/)
+- gitlab_dora_metrics.py
+- gitlab_user_metrics.py
+- gitlab_team_lead_analysis.py
+
+**Jira Araçları:** [../scripts/jira/](../scripts/jira/)
+- jira_team_analysis.py
+- jira_metin_isfendiyar_analysis.py
+
+**Analiz Araçları:** [../scripts/](../scripts/)
+- analyze_bug_ratio.py
+- generate_comprehensive_report.py
 
 ---
 
-*Last updated: 2026-01-20*
-*Reports cover: 2025-01-01 to 2025-12-31*
+*Son güncelleme: 2026-01-22*
+*Raporlar: 2025-01-01 - 2025-12-31*
